@@ -1,3 +1,4 @@
+// File: src/App.jsx
 import React from 'react';
 import Navbar from './components/Navbar/Navbar';
 import HeroSection from './components/HeroSection/HeroSection';
@@ -5,13 +6,13 @@ import AboutSection from './components/AboutSection/AboutSection';
 import WorkSection from './components/WorkSection/WorkSection'; 
 import ContactSection from './components/ContactSection/ContactSection'; 
 
-// Import gambar latar belakang
-import backgroundImage from './assets/background-image.jpg'; 
+// TIDAK ADA IMPOR GAMBAR DI SINI! (Sudah dipindahkan ke public/)
 
 function App() {
-  // Style untuk background blur
+  // Style untuk background blur (menggunakan jalur absolut / dari folder public)
   const backgroundStyle = {
-    backgroundImage: `url(${backgroundImage})`,
+    // JALUR BARU: /background-image.jpg mereferensi public/background-image.jpg
+    backgroundImage: `url(/background-image.jpg)`, 
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundAttachment: 'fixed',
@@ -21,9 +22,9 @@ function App() {
     width: '100%',
     height: '100%',
     zIndex: 1,
-    filter: 'blur(10px)', // Efek blur pada gambar
-    WebkitFilter: 'blur(10px)', // Dukungan browser lama
-    opacity: 0.2, // Menggelapkan gambar agar teks kontras
+    filter: 'blur(10px)', 
+    WebkitFilter: 'blur(10px)', 
+    opacity: 0.2, 
   };
 
   return (
@@ -44,4 +45,3 @@ function App() {
 }
 
 export default App;
-
