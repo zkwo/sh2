@@ -1,0 +1,106 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    gap: 1.5rem; /* Jarak antara ikon musik dan hamburger */
+}
+
+.musicPlayer {
+    background: none;
+    border: none;
+    font-size: 1.8rem; /* Ukuran ikon musik */
+    color: var(--text-light);
+    cursor: pointer;
+    z-index: 1001;
+    transition: color 0.3s ease;
+}
+
+.musicPlayer:hover {
+    color: var(--accent-color);
+}
+
+.hamburger {
+    background: none;
+    border: none;
+    font-size: 2.5rem; /* Ukuran ikon hamburger */
+    color: var(--text-light);
+    cursor: pointer;
+    z-index: 1001; 
+    transition: color 0.3s ease;
+}
+
+.hamburger:hover {
+    color: var(--accent-color);
+}
+
+.overlayMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-darker); /* Lebih gelap dari background body */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 999;
+}
+
+.overlayMenu.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menuList {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.menuItem {
+    margin: 1.5rem 0;
+}
+
+.menuLink {
+    font-family: var(--font-serif);
+    font-size: 2.8rem; 
+    color: var(--text-light);
+    transition: color 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.menuLink:hover {
+    color: var(--accent-color);
+}
+
+/* Efek cling/glow pada menu item saat hover */
+.menuLink::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    z-index: -1;
+}
+
+.menuLink:hover::before {
+    transform: translate(-50%, -50%) scale(5); /* Ukuran cling */
+    opacity: 0.3;
+}
