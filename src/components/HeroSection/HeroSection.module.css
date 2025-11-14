@@ -1,0 +1,83 @@
+.heroSection {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; 
+    padding: 0 5vw; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    position: relative; /* Untuk scroll down arrow */
+    z-index: 2; /* Agar di atas background */
+}
+
+.intro {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+}
+
+.name {
+    font-family: var(--font-serif);
+    font-size: 6vw; 
+    line-height: 1;
+    margin-bottom: 0.2em;
+    font-weight: 700;
+    color: var(--text-light);
+    text-transform: uppercase;
+}
+
+.tagline {
+    font-size: 1.8vw; 
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    font-weight: 400;
+    max-width: 80%;
+}
+
+.scrollDown {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.scrollDownArrow {
+    font-size: 2rem;
+    margin-top: 0.5rem;
+    animation: bounce 1.5s infinite; 
+}
+
+/* Media Queries untuk responsif */
+@media (max-width: 768px) {
+    .name {
+        font-size: 10vw;
+    }
+    .tagline {
+        font-size: 4vw;
+        max-width: 100%;
+    }
+    .heroSection {
+        align-items: center; 
+        text-align: center;
+    }
+}
+@media (max-width: 480px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; }
+    .name {
+        font-size: 12vw;
+    }
+    .tagline {
+        font-size: 5vw;
+    }
+}
