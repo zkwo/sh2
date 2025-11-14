@@ -1,15 +1,17 @@
+// File: src/components/Navbar/Navbar.jsx
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineClose } from 'react-icons/ai';
 import { FaPlay, FaPause } from 'react-icons/fa';
 import styles from './Navbar.module.css';
-import backgroundMusic from '../../media/background-music.mp3'; // Import file musik
+
+// TIDAK ADA IMPOR MUSIK DI SINI! (Sudah dipindahkan ke public/)
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef(null); // Ref untuk elemen audio
+  const audioRef = useRef(null); 
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -24,26 +26,27 @@ const Navbar = () => {
       if (isPlaying) {
         audioRef.current.pause();
       } else {
-        audioRef.current.play();
+        // Penting: Autoplay hanya akan bekerja jika dipicu oleh interaksi user
+        audioRef.current.play().catch(error => {
+          console.log("Audio playback failed:", error);
+        });
       }
       setIsPlaying(!isPlaying);
     }
   };
 
   useEffect(() => {
-    // Pastikan audio dimainkan saat komponen dimuat jika Anda ingin autoplay
-    // Namun, autoplay sering diblokir browser, jadi lebih baik via interaksi user
     if (audioRef.current) {
-      audioRef.current.volume = 0.3; // Atur volume default
-      audioRef.current.loop = true; // Set loop untuk musik latar
+      audioRef.current.volume = 0.3; 
+      audioRef.current.loop = true; 
     }
   }, []);
 
   return (
     <>
       <nav className={styles.navbar}>
-        {/* Audio Player (tersembunyi) */}
-        <audio ref={audioRef} src={backgroundMusic} preload="auto"></audio>
+        {/* Audio Player (menggunakan jalur absolut / dari folder public) */}
+        <audio ref={audioRef} src="/background-music.mp3" preload="auto"></audio> 
 
         {/* Ikon Musik */}
         <button onClick={toggleMusic} className={styles.musicPlayer}>
