@@ -1,0 +1,68 @@
+.aboutSection {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 5vw;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid var(--border-color); 
+    z-index: 2; /* Agar di atas background */
+    position: relative; /* Untuk efek glow pada section */
+}
+
+.sectionTitle {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--accent-color);
+}
+
+.contentWrapper {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 4rem;
+}
+
+.textColumn, .skillsColumn {
+    flex: 1;
+    min-width: 300px; 
+}
+
+.textColumn p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+}
+
+.skillsColumn h3 {
+    font-family: var(--font-sans); 
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+}
+
+.skillList {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    gap: 1rem;
+}
+
+.skillItem {
+    font-size: 1rem;
+    color: var(--text-light);
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    text-align: center;
+    background-color: #222;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.skillItem:hover {
+    background-color: var(--accent-color);
+    border-color: var(--text-light);
+    color: var(--bg-dark); 
+}
